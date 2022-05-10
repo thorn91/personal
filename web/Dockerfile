@@ -1,5 +1,5 @@
 FROM node:lts-alpine as build-stage
-RUN mkdir /home/ubuntu/source/app
+RUN mkdir -p /home/ubuntu/source/app
 WORKDIR /home/ubuntu/source/app
 COPY package.json /home/ubuntu/source/app/package.json
 RUN npm install

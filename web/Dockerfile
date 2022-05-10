@@ -16,6 +16,6 @@ RUN npm run build
 
 ### 2: nginx ###
 FROM nginx:stable-alpine
-COPY --from=build /usr/src/app/dist /usr/share/nginx/html
+COPY --from=build /usr/src/app/public/build /usr/share/nginx/html
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]

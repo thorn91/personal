@@ -1,4 +1,4 @@
-
+<script>
 	export let name: string;
 </script>
 

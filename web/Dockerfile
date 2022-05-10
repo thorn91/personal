@@ -1,13 +1,21 @@
-FROM node:lts-alpine as build-stage
-RUN mkdir -p /home/ubuntu/source/app
-WORKDIR /home/ubuntu/source/app
-COPY package.json /home/ubuntu/source/app/package.json
+### 1: Build ###
+# Look for a local cache of node or pull it from DockerHub
+FROM node:latest as build
+# Create and set our working directory
+RUN mkdir -p /usr/src/app
+WORKDIR /usr/src/app
+# Caching trick that copies all node_modules to PATH var
+ENV PATH /usr/src/app/node_modules/.bin:$PATH
+# Copy pacakge.json and install dependencies
+COPY package.json /usr/src/app/package.json
 RUN npm install
-COPY . /home/ubuntu/source/app
-RUN npm run build     
+# Copy the rest of the application files
+COPY . /usr/src/app
+# Creates static app
+RUN npm run build
 
-# production stage
-FROM nginx:stable-alpine as production-stage
-COPY --from=build-stage /home/ubuntu/source/app/public/build /usr/share/nginx/html
+### 2: nginx ###
+FROM nginx:stable-alpine
+COPY --from=build /usr/src/app/dist /usr/share/nginx/html
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]

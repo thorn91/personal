@@ -43,9 +43,7 @@
                 Fullstack web development on the Orderly food cost solutioons
                 product.
             </p>
-            <p class="info-sub-description">
-                SpringBoot, React, Angular, MySql, Docker, SCSS
-            </p>
+            <p class="info-sub-description">JavaScript, ServiceNow</p>
         </div>
     </div>
 </div>
@@ -114,7 +112,7 @@
                 .info-sub-description {
                     font-size: 0.7em;
                     font-weight: 300;
-                    max-width: 25ch;
+                    max-width: 30ch;
                     overflow-wrap: break-word;
                 }
             }

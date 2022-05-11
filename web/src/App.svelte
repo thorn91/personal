@@ -1,4 +1,6 @@
 <script lang="ts">
+    import Card from "./Card.svelte";
+
     window.onload = () => {
         setTimeout(() => {
             // document.getElementById('im').remove();
@@ -27,9 +29,17 @@
             >
         </div>
     </div>
-    <div class="card">
-        Hello
-    </div>
+
+    <!-- <div class="card">
+        <div class="info-container">
+            <img
+                class="card-image"
+                src="images/buyers_edge.png"
+                alt="Buyers Edge"
+            />
+        </div>
+    </div> -->
+    <Card/>
 </main>
 
 <style lang="scss">
@@ -120,12 +130,19 @@
         }
 
         .card {
-                grid-area: card;
-                display: flex;
-                border: 2px solid $brand-dark;
-                min-height: calc(100vh / 3);
-                height: 100%;
+            grid-area: card;
+            display: flex;
+            flex-grow: 0;
+            flex-shrink: 0;
+
+            .info-container {
+                .card-image {
+                    object-fit: cover;
+                    width: auto;
+                    height: 100px;
+                }
             }
+        }
 
         @keyframes fadeout {
             0% {

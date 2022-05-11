@@ -54,7 +54,7 @@
             "middle"
             "bottom"
             "card";
-        grid-template-rows: 3fr 3fr 2fr auto;
+        grid-template-rows: 25% 3fr 2fr auto;
         justify-content: center;
         align-items: center;
 

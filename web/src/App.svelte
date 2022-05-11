@@ -1,8 +1,8 @@
 <script lang="ts">
     window.onload = () => {
         setTimeout(() => {
-            // document.getElementById('im').style.opacity = 'none';
-        }, 4000);
+            // document.getElementById('im').remove();
+        }, 5000);
     }
 
 </script>
@@ -12,10 +12,16 @@
     </div>
     <div class="middle">
         <h1 class="initial-hello">hello</h1>
-        <h1 class="name-section"><span id="im">I'm</span> Thomas W. Horn</h1>
+        <h1 class="name-section"><span id="im">I'm </span>Thomas W. Horn</h1>
+        <h2 class="description-section">Software Developer (FullStack)</h2>
     </div>
     <div class="bottom">
-        <div class="bottom-navigation">hello</div>
+        <div class="bottom-navigation">
+            <p>experience</p>
+            <p>education</p>
+            <i class="fa-brands fa-linkedin"></i>
+            <i class="fa-brands fa-github"></i>
+        </div>
     </div>
 </main>
 
@@ -50,6 +56,7 @@
 
         .middle {
             grid-area: middle;
+            color: $brand-darkest;
 
             .initial-hello {
                 animation: fadeout 1s;
@@ -72,6 +79,18 @@
 
         .bottom {
             grid-area: bottom;
+
+            .bottom-navigation {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                color: $brand-dark;
+                font-weight: bolder;
+            
+                .fa-brand {
+                    font-size: 1.7em;
+                }
+            }
         }
 
         @keyframes fadeout {
@@ -97,7 +116,7 @@
                 transform: translateX(0%);
             }
             to {
-                transform: translateX(-20%);
+                transform: translateX(-53.5px);
             }
         }
     }

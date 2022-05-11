@@ -1,10 +1,10 @@
 <script lang="ts">
-    import Card from "./Card.svelte";
+    import ExperienceCard from "./ExperienceCard.svelte";
 
-    window.onload = () => {
-        setTimeout(() => {
-            // document.getElementById('im').remove();
-        }, 5000);
+    let showExperience = false;
+
+    const toggleExperience = () => {
+        showExperience = !showExperience;
     };
 </script>
 
@@ -12,11 +12,11 @@
     <div class="upper">
         <h1 class="initial-hello">hello</h1>
         <h1 class="name-section"><span id="im">I'm </span>Thomas W. Horn</h1>
-        <h2 class="description-section">Software Developer (FullStack)</h2>
+        <h2 class="description-section">Software Developer (Fullstack)</h2>
     </div>
     <div class="bottom">
         <div class="bottom-navigation">
-            <p class="clickable">experience</p>
+            <p class="clickable" on:click={toggleExperience}>experience</p>
             <p class="clickable">education</p>
             <div class="tools clickable">
                 <i class="fa-solid fa-toolbox clickable" />
@@ -29,17 +29,9 @@
             >
         </div>
     </div>
-
-    <!-- <div class="card">
-        <div class="info-container">
-            <img
-                class="card-image"
-                src="images/buyers_edge.png"
-                alt="Buyers Edge"
-            />
-        </div>
-    </div> -->
-    <Card/>
+    {#if showExperience}
+        <ExperienceCard />
+    {/if}
 </main>
 
 <style lang="scss">
@@ -94,12 +86,20 @@
         .bottom {
             grid-area: bottom;
 
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+
             .bottom-navigation {
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
                 color: $brand-dark;
                 font-weight: bolder;
+                font-size: 1.2em;
 
                 a {
                     text-decoration: none;
@@ -125,21 +125,6 @@
                     .tool-text {
                         font-size: 0.7em;
                     }
-                }
-            }
-        }
-
-        .card {
-            grid-area: card;
-            display: flex;
-            flex-grow: 0;
-            flex-shrink: 0;
-
-            .info-container {
-                .card-image {
-                    object-fit: cover;
-                    width: auto;
-                    height: 100px;
                 }
             }
         }

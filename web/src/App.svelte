@@ -1,10 +1,18 @@
 <script lang="ts">
-    import ExperienceCard from "./ExperienceCard.svelte";
+    import ExperienceCard from './ExperienceCard.svelte';
+    import EducationCard from './EducationCard.svelte';
 
     let showExperience = false;
+    let showEducation = false;
 
     const toggleExperience = () => {
         showExperience = !showExperience;
+        showEducation = false;
+    };
+
+    const toggleEducation = () => {
+        showEducation = !showEducation;
+        showExperience = false;
     };
 </script>
 
@@ -17,7 +25,7 @@
     <div class="bottom">
         <div class="bottom-navigation">
             <p class="clickable" on:click={toggleExperience}>experience</p>
-            <p class="clickable">education</p>
+            <p class="clickable" on:click={toggleEducation}>education</p>
             <div class="tools clickable">
                 <i class="fa-solid fa-toolbox clickable" />
                 <span class="tool-text clickable">Tools</span>
@@ -31,6 +39,9 @@
     </div>
     {#if showExperience}
         <ExperienceCard />
+    {/if}
+    {#if showEducation}
+        <EducationCard />
     {/if}
 </main>
 

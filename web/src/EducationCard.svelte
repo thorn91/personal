@@ -1,0 +1,119 @@
+<script lang="ts">
+</script>
+
+<div class="card">
+    <div class="info-container">
+        <div class="image-container">
+            <img
+                class="card-image"
+                src="images/uga_logo.png"
+                alt="UGA"
+                title="University of Georgia"
+            />
+        </div>
+        <div class="info-desc-container">
+            <div class="info-heading-container">
+                <p class="info-heading">University of Georgia</p>
+                <p class="info-date">2021</p>
+            </div>
+            <p class="info-description">
+                B.S. Computer Science
+            </p>
+            <p class="info-sub-description">
+                Magna Cum Laude
+            </p>
+        </div>
+    </div>
+    <div class="info-container">
+        <div class="image-container">
+            <img
+                class="card-image"
+                src="images/rhodes_logo.png"
+                alt="Techport13"
+                title="Techport13"
+            />
+        </div>
+        <div class="info-desc-container">
+            <div class="info-heading-container">
+                <p class="info-heading">Rhodes College</p>
+                <p class="info-date">2014</p>
+            </div>
+            <p class="info-description">
+                B.S. Neuroscience
+            </p>
+            <p class="info-sub-description">Cum Laude</p>
+        </div>
+    </div>
+</div>
+
+<style lang="scss">
+    $brand-lightest: #ffcdb2;
+    $brand-lighter: #ffb4a2;
+    $brand-main: #e5989b;
+    $brand-dark: #b5838d;
+    $brand-darkest: #6d6875;
+
+    .card {
+        grid-area: card;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 0;
+
+        .info-container {
+            display: flex;
+            color: $brand-darkest;
+            font-weight: 300;
+            border-bottom: 1px solid $brand-main;
+            border-radius: 10px;
+            padding: 5px;
+            margin-bottom: 1em;
+
+            .image-container {
+                width: 68px;
+                margin-right: 2em;
+
+                .card-image {
+                    object-fit: contain;
+                    height: 68px;
+                }
+            }
+
+            .info-desc-container {
+                display: flex;
+                flex-direction: column;
+                margin-left: 1em;
+
+                .info-heading-container {
+                    display: flex;
+                    justify-content: space-evenly;
+                    align-items: center;
+                    margin-bottom: 0;
+
+                    .info-heading {
+                        margin-right: 0.5em;
+                        font-weight: bold;
+                        font-size: 0.9em;
+                    }
+
+                    .info-date {
+                        font-weight: light;
+                        font-size: 0.8em;
+                    }
+                }
+
+                .info-description {
+                    margin-bottom: 0;
+                    max-width: 20ch;
+                    overflow-wrap: break-word;
+                }
+
+                .info-sub-description {
+                    font-size: 0.7em;
+                    font-weight: 300;
+                    max-width: 30ch;
+                    overflow-wrap: break-word;
+                }
+            }
+        }
+    }
+</style>

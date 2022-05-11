@@ -59,7 +59,7 @@
             #im {
                 animation: fadeout 2s;
                 animation-fill-mode: forwards;
-                animation-delay: 4s;
+                animation-delay: 1s;
             }
 
             .name-section {

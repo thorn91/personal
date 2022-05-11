@@ -7,7 +7,7 @@
 </script>
 
 <main class="main">
-    <div class="middle">
+    <div class="upper">
         <h1 class="initial-hello">hello</h1>
         <h1 class="name-section"><span id="im">I'm </span>Thomas W. Horn</h1>
         <h2 class="description-section">Software Developer (FullStack)</h2>
@@ -50,17 +50,17 @@
         margin: 2em;
         display: grid;
         grid-template-areas:
-            "."
-            "middle"
+            "upper"
             "bottom"
             "card";
-        grid-template-rows: 25% 3fr 2fr auto;
+        grid-template-rows: 3fr 2fr auto;
         justify-content: center;
         align-items: center;
 
-        .middle {
-            grid-area: middle;
+        .upper {
+            grid-area: upper;
             color: $brand-darkest;
+            margin-top: 25%;
 
             .initial-hello {
                 animation: fadeout 1.5s;

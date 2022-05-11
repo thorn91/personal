@@ -1,30 +1,104 @@
 <script lang="ts">
-	export let name: string;
+    window.onload = () => {
+        setTimeout(() => {
+            // document.getElementById('im').style.opacity = 'none';
+        }, 4000);
+    }
+
 </script>
 
-<main>
-	<h1>Hello {name}!</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
+<main class="main">
+    <div class="top">
+    </div>
+    <div class="middle">
+        <h1 class="initial-hello">hello</h1>
+        <h1 class="name-section"><span id="im">I'm</span> Thomas W. Horn</h1>
+    </div>
+    <div class="bottom">
+        <div class="bottom-navigation">hello</div>
+    </div>
 </main>
 
-<style>
-	main {
-		text-align: center;
-		padding: 1em;
-		max-width: 240px;
-		margin: 0 auto;
-	}
+<style lang="scss">
+	// * {
+    //     outline: 1px solid red;
+    // }
+    $brand-lightest: #ffcdb2;
+    $brand-lighter: #ffb4a2;
+    $brand-main: #e5989b;
+    $brand-dark: #b5838d;
+    $brand-darkest: #6d6875;
+    
+    :global(body) {
+        background-color: $brand-lightest;
+    }
 
-	h1 {
-		color: #ff3e00;
-		text-transform: uppercase;
-		font-size: 4em;
-		font-weight: 100;
-	}
+    main {
+        margin: 2em;
+        display: grid;
+        grid-template-areas:
+            "top"
+            "middle"
+            "bottom";
+        grid-template-rows: 4fr 3fr auto;
+        justify-content: center;
+		align-items: center;
 
-	@media (min-width: 640px) {
-		main {
-			max-width: none;
-		}
-	}
+        .top {
+            grid-area: top;
+        }
+
+        .middle {
+            grid-area: middle;
+
+            .initial-hello {
+                animation: fadeout 1s;
+                animation-fill-mode: forwards;
+            }
+
+            #im {
+                animation: fadeout 2s;
+                animation-fill-mode: forwards;
+                animation-delay: 4s;
+            }
+
+            .name-section {
+                opacity: 0;
+                animation: fadein 1s, moveleft 4s;
+                animation-fill-mode: forwards;
+                animation-delay: 1s;
+            }
+        }
+
+        .bottom {
+            grid-area: bottom;
+        }
+
+        @keyframes fadeout {
+            0% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+
+        @keyframes fadein {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes moveleft {
+            from {
+                transform: translateX(0%);
+            }
+            to {
+                transform: translateX(-20%);
+            }
+        }
+    }
 </style>

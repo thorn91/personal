@@ -7,7 +7,6 @@
 </script>
 
 <main class="main">
-    <div class="top" />
     <div class="middle">
         <h1 class="initial-hello">hello</h1>
         <h1 class="name-section"><span id="im">I'm </span>Thomas W. Horn</h1>
@@ -24,10 +23,12 @@
             <a
                 href="https://www.linkedin.com/in/thomaswarrenhorn/"
                 title="LinkedIn: Thomas Horn"
-                target="_blank"
-                ><i class="fa-brands fa-linkedin clickable" /></a
+                target="_blank"><i class="fa-brands fa-linkedin clickable" /></a
             >
         </div>
+    </div>
+    <div class="card">
+        Hello
     </div>
 </main>
 
@@ -49,37 +50,34 @@
         margin: 2em;
         display: grid;
         grid-template-areas:
-            "top"
+            "."
             "middle"
-            "bottom";
-        grid-template-rows: 4fr 3fr auto;
+            "bottom"
+            "card";
+        grid-template-rows: 3fr 3fr 2fr auto;
         justify-content: center;
         align-items: center;
-
-        .top {
-            grid-area: top;
-        }
 
         .middle {
             grid-area: middle;
             color: $brand-darkest;
 
             .initial-hello {
-                animation: fadeout 1s;
+                animation: fadeout 1.5s;
                 animation-fill-mode: forwards;
             }
 
             #im {
                 animation: fadeout 2s;
                 animation-fill-mode: forwards;
-                animation-delay: 1s;
+                animation-delay: 0.5s;
             }
 
             .name-section {
                 opacity: 0;
                 animation: fadein 1s, moveleft 4s;
                 animation-fill-mode: forwards;
-                animation-delay: 1s;
+                animation-delay: 0.5s;
             }
         }
 
@@ -121,6 +119,14 @@
             }
         }
 
+        .card {
+                grid-area: card;
+                display: flex;
+                border: 2px solid $brand-dark;
+                min-height: calc(100vh / 3);
+                height: 100%;
+            }
+
         @keyframes fadeout {
             0% {
                 opacity: 1;
@@ -146,6 +152,11 @@
             to {
                 transform: translateX(-53.5px);
             }
+        }
+
+        /* Smartphones (portrait) ----------- */
+        @media only screen and (max-width: 320px) {
+            margin-bottom: 3em;
         }
     }
 </style>

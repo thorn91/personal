@@ -1,18 +1,28 @@
 <script lang="ts">
-    import ExperienceCard from './ExperienceCard.svelte';
-    import EducationCard from './EducationCard.svelte';
+    import ExperienceCard from "./ExperienceCard.svelte";
+    import EducationCard from "./EducationCard.svelte";
+    import ToolsCard from "./ToolsCard.svelte";
 
     let showExperience = false;
     let showEducation = false;
+    let showTools = false;
 
     const toggleExperience = () => {
         showExperience = !showExperience;
         showEducation = false;
+        showTools = false;
     };
 
     const toggleEducation = () => {
         showEducation = !showEducation;
         showExperience = false;
+        showTools = false;
+    };
+
+    const toggleTools = () => {
+        showTools = !showTools;
+        showExperience = false;
+        showEducation = false;
     };
 </script>
 
@@ -24,11 +34,21 @@
     </div>
     <div class="bottom">
         <div class="bottom-navigation">
-            <p class="clickable" on:click={toggleExperience}>experience</p>
-            <p class="clickable" on:click={toggleEducation}>education</p>
-            <div class="tools clickable">
-                <i class="fa-solid fa-toolbox clickable" />
-                <span class="tool-text clickable">Tools</span>
+            <p
+                class={showExperience ? "selected-text" : "clickable"}
+                on:click={toggleExperience}
+            >
+                experience
+            </p>
+            <p
+                class={showEducation ? "selected-text" : "clickable"}
+                on:click={toggleEducation}
+            >
+                education
+            </p>
+            <div class="{showTools ? "tools selected-text" : "tools clickable"}" on:click={toggleTools}>
+                <i class="fa-solid fa-toolbox {showTools ? "tools" : "tools"}" />
+                <span class="{showTools ? "tools tool-text" : "tool-text"}">Tools</span>
             </div>
             <a
                 href="https://www.linkedin.com/in/thomaswarrenhorn/"
@@ -42,6 +62,9 @@
     {/if}
     {#if showEducation}
         <EducationCard />
+    {/if}
+    {#if showTools}
+        <ToolsCard />
     {/if}
 </main>
 
@@ -120,6 +143,15 @@
                 .clickable:hover {
                     cursor: pointer;
                     color: $brand-main;
+                }
+
+                .selected-text {
+                    color: $brand-main;
+                }
+
+                .selected-text:hover {
+                    cursor: pointer;
+                    color: $brand-dark;
                 }
 
                 .fa-linkedin {
